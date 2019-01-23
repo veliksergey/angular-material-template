@@ -1,0 +1,85 @@
+<!-- toolbar -->
+<mat-toolbar color="primary" class="primary-toolbar">
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <a routerLink="/" class="logo" matTooltip="Home Page">
+    MyLogo
+  </a>
+  <span class="spacer"></span>
+
+  <ul *ngIf="size != 'sm'">
+    <li>
+      <a mat-button
+         routerLink="/"
+         routerLinkActive="mat-accent"
+         [routerLinkActiveOptions]="{exact: true}">
+        <mat-icon>home</mat-icon>
+        Home
+      </a>
+    </li>
+
+    <li>
+      <a mat-button
+         routerLink="/list"
+         routerLinkActive="mat-accent">
+        <mat-icon>list</mat-icon>
+        List
+      </a>
+    </li>
+
+    <li>
+      <a mat-button
+         routerLink="/contact"
+         routerLinkActive="mat-accent">
+        <mat-icon>contact_support</mat-icon>
+        Contact Us
+      </a>
+    </li>
+  </ul>
+</mat-toolbar>
+
+<!-- sidenav -->
+<mat-sidenav-container autosize>
+  <mat-sidenav #sidenav
+               fixedInViewport
+               fixedTopGap="60"
+               [mode]="(size == 'lg') ? 'side' : 'over'"
+               [opened]="(size == 'lg')">
+
+    <mat-toolbar class="sidenav-toolbar">
+      <mat-toolbar-row>
+        <a mat-button
+           routerLink="/"
+           routerLinkActive="mat-accent"
+           [routerLinkActiveOptions]="{exact: true}">
+          <mat-icon>home</mat-icon>
+          Home
+        </a>
+      </mat-toolbar-row>
+
+      <mat-toolbar-row>
+        <a mat-button
+           routerLink="/list"
+           routerLinkActive="mat-accent">
+          <mat-icon>list</mat-icon>
+          List
+        </a>
+      </mat-toolbar-row>
+
+      <mat-toolbar-row>
+        <a mat-button
+           routerLink="/contact"
+           routerLinkActive="mat-accent">
+          <mat-icon>contact_support</mat-icon>
+          Contact Us
+        </a>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

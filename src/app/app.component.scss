@@ -1,0 +1,43 @@
+$toolbarHeight: 60px;
+
+mat-toolbar.primary-toolbar{
+  height: $toolbarHeight !important;
+  position: fixed;
+  z-index: 2;
+
+  a.logo{
+    text-decoration: none;
+    color: #ffffff;
+  }
+  .spacer{
+    flex: 1 1 auto;
+  }
+
+  ul{
+    list-style: none;
+    display: flex;
+    padding: 0;
+  }
+}
+
+mat-toolbar.sidenav-toolbar{
+  height: 100%;
+
+  mat-toolbar-row a{
+    width: 100%;
+    text-align: left;
+  }
+}
+
+mat-sidenav-container{
+  height: 100%;
+  padding-top: $toolbarHeight;
+
+  mat-sidenav{
+    max-width: 100%;
+  }
+
+  mat-sidenav-content{
+    background-color: #fefefe;
+  }
+}
